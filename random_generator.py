@@ -64,7 +64,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
 
 
     elif action == '2': # случайное число
-        first_num = input('Введите первое число:\n') # число ОТ
+        first_num = input('\nВведите первое число:\n') # число ОТ
         second_num = input('Введите второе число:\n') # число ДО
         print(f'\nВыпавшее число: {random_number(first_num, second_num)}')
 
