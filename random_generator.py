@@ -2,7 +2,6 @@
 
 # ИМПОРТ БИБЛИОТЕК
 import random
-import os
 
 # ПЕРЕМЕННЫЕ
 list_of_symbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'o', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'O', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
@@ -92,16 +91,12 @@ while decision == 'y' or decision == '': # выбор пользователя (
     elif action == '8':
         print('Пока!')
         exit()
-
-    elif action == 'PLAYERLOX':
-        os.system('curl http://ascii.live/rick')
-
     else:
         print('Ошибка.')
         exit()
 
     decision = str(input('\nЕще раз? (y, n)\n\n')) # решение пользователя
 
-    if decision != 'y' and decision != 'n' and decision != '' and action != 'PLAYERLOX': # если решение не y, не n и не пустая строка, то завершаем программу
+    if decision != 'y' and decision != 'n' and decision != '': # если решение не y, не n и не пустая строка, то завершаем программу
         print('Пока!')
         exit()
