@@ -24,10 +24,9 @@ def coin_flip() -> str: # ПОДБРОС МОНЕТКИ
 
 def generate_random_pass(lenght: int) -> str: # ГЕНЕРАЦИЯ СЛУЧАЙНОГО ПАРОЛЯ
     i = 0 # счетчик
-    list_of_symbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'o', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'O', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
     result = '' # конечный результат
     while i <= lenght - 1: # пока счетчик меньше заданной длины пароля
-        result += random.choice(list_of_symbols)
+        result += random.choice('abcdefghijklomnpqrstuvwxyzABCDEFGHIJKLOMNPQRSTUVWXYZ0123456789!@#$%^&*()')
         i += 1
     return result
 
@@ -47,7 +46,17 @@ def random_card(): # СЛУЧАЙНАЯ КАРТА
 # КЛИЕНТСКАЯ ЧАСТЬ
 while decision == 'y' or decision == '': # выбор пользователя (по умолчанию y, чтобы программа хотя бы запустилась)
 
-    action = str(input('\nВыберите действие:\n1) Кинуть кости\n2) Случайное число\n3) Подброс монет\n4) Генератор паролей\n5) Да или нет\n6) Magic 8Ball\n7) Случайная карта\n8) Выйти\n\n')) # выбор
+    action = str(input("""Выберите действие:
+1) Кинуть кости
+2) Случайное число
+3) Подброс монет
+4) Генератор паролей
+5) Да или нет
+6) Magic 8Ball
+7) Случайная карта
+8) Выйти
+
+""")) # выбор
 
     if action == '1': # кинуть кости
         num_of_dices = input('\nСколько? (1, 2)\n\n') # кол-во костей
@@ -56,7 +65,10 @@ while decision == 'y' or decision == '': # выбор пользователя (
         elif num_of_dices == '2':
             first_dice = roll_the_dice()
             second_dice = roll_the_dice()
-            print(f'\nВыпавшее число: {first_dice + second_dice}\nПервый кубик: {first_dice}\nВторой кубик: {second_dice}')
+            print(f"""Выпавшее число: {first_dice + second_dice}
+Первый кубик: {first_dice}
+Второй кубик: {second_dice}
+""")
         else:
             print("Ошибка")
             exit()
@@ -82,7 +94,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
 
     elif action == '6': # магический шар
         input('Введите свой вопрос:\n')
-        print(f'\nОтвет: {random.choice(magic_8ball_replics)}')
+        print(f'\n{magic_8ball()}')
 
     elif action == '7':
         print(f'\n{random_card()}')
