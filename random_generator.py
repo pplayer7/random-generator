@@ -57,11 +57,14 @@ while decision == 'y' or decision == '': # выбор пользователя (
             first_dice = roll_the_dice()
             second_dice = roll_the_dice()
             print(f'\nВыпавшее число: {first_dice + second_dice}\nПервый кубик: {first_dice}\nВторой кубик: {second_dice}')
+        else:
+            print("Ошибка")
+            exit()
 
 
     elif action == '2': # случайное число
-        first_num = input('Введите первое число:\n') # число ОТ
-        second_num = input('Введите второе число:\n') # число ДО
+        first_num = int(input('Введите первое число:\n')) # число ОТ
+        second_num = int(input('Введите второе число:\n')) # число ДО
         if first_num > second_num:
             print('\nЧисло "от" не может быть больше числа "до".')
             exit()
@@ -78,7 +81,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
         print(f'\nОтвет: {yes_or_no()}')
 
     elif action == '6': # магический шар
-        str(input('Введите свой вопрос:\n'))
+        input('Введите свой вопрос:\n')
         print(f'\nОтвет: {random.choice(magic_8ball_replics)}')
 
     elif action == '7':
