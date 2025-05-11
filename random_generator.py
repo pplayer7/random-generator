@@ -23,15 +23,16 @@ def coin_flip() -> str: # ПОДБРОС МОНЕТКИ
     return random.choices(["Орел", "Решка", "Ребро"], weights=[49.5, 49.5, 1], k=1)[0] # в списке указаны возможные варианты, во втором списке шансы
 
 def generate_random_pass(lenght: int) -> str: # ГЕНЕРАЦИЯ СЛУЧАЙНОГО ПАРОЛЯ
-    i = 0 # счетчик
     result = '' # конечный результат
-    while i <= lenght - 1: # пока счетчик меньше заданной длины пароля
-        result += random.choice('abcdefghijklomnpqrstuvwxyzABCDEFGHIJKLOMNPQRSTUVWXYZ0123456789!@#$%^&*()')
-        i += 1
+    if lenght >= 1:
+        for n in range(1, lenght + 1): # в диапазоне от 1 до длины
+            result += random.choice('abcdefghijklomnpqrstuvwxyzABCDEFGHIJKLOMNPQRSTUVWXYZ0123456789!@#$%^&*()')
+    else:
+        return 'Ошибка. Длина не может быть меньше единицы.'
     return result
 
 def yes_or_no(): # ДА/НЕТ
-    decisions = ['Да', 'Нет']
+    decisions = ['да', 'нет']
     return random.choice(decisions)
 
 def magic_8ball(): # МАГИЧЕСКИЙ ШАР
@@ -87,7 +88,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
 
     elif action == '4': # генератор паролей
         lenght_of_pass = int(input('\nВведите длину пароля:\n'))
-        print(f'\nПароль: {generate_random_pass(lenght_of_pass)}')
+        print(f'\n{generate_random_pass(lenght_of_pass)}')
 
     elif action == '5': # да или нет
         print(f'\nОтвет: {yes_or_no()}')
@@ -96,7 +97,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
         input('Введите свой вопрос:\n')
         print(f'\n{magic_8ball()}')
 
-    elif action == '7':
+    elif action == '7': # случайная карта
         print(f'\n{random_card()}')
 
     elif action == '8':
