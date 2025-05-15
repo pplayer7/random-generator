@@ -38,18 +38,22 @@ def random_card(): # СЛУЧАЙНАЯ КАРТА
     cards_value = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Валет', 'Дама', 'Король']
     return f'{random.choice(cards_value)} {random.choice(cards)}'
 
+def roulette(list_of_vars):
+    return random.choice(list(list_of_vars))
+
 # КЛИЕНТСКАЯ ЧАСТЬ
 while decision == 'y' or decision == '': # выбор пользователя (по умолчанию y, чтобы программа хотя бы запустилась)
 
     action = str(input("""Выберите действие:
 1) Кинуть кости
 2) Случайное число
-3) Подброс монет
+3) Подброс монетки
 4) Генератор паролей
 5) Да или нет
 6) Magic 8Ball
 7) Случайная карта
-8) Выйти
+8) Рулетка
+9) Выйти
 
 """)) # выбор
 
@@ -95,8 +99,16 @@ while decision == 'y' or decision == '': # выбор пользователя (
         print(f'\n{random_card()}')
 
     elif action == '8':
+        var_list = list(input('Введите варианты через запятую\n').split())
+        if var_list == []:
+            print('Введите корректные значения!')
+            exit()
+        print(roulette(var_list))
+
+    elif action == '9':
         print('Пока!')
         exit()
+
     else:
         print('Ошибка.')
         exit()
