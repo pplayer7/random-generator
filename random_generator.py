@@ -99,7 +99,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
         print(f'\n{random_card()}')
 
     elif action == '8':
-        var_list = list(input('Введите варианты через запятую\n').split())
+        var_list = list(input('Введите варианты через пробел\n').split())
         if var_list == []:
             print('Введите корректные значения!')
             exit()
