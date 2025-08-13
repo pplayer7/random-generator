@@ -41,12 +41,11 @@ def russian_roulette():
         return 'Жив. Пока что...'
 
 # КЛИЕНТСКАЯ ЧАСТЬ
-decision = 'y'
-
+decision: str = 'y'
 
 while decision == 'y' or decision == '': # выбор пользователя (по умолчанию y, чтобы программа хотя бы запустилась)
 
-    action = str(input("""Выберите действие:
+    action = int(input("""Выберите действие:
 1) Кинуть кости
 2) Случайное число
 3) Подброс монетки
@@ -60,11 +59,11 @@ while decision == 'y' or decision == '': # выбор пользователя (
 
 """)) # выбор
     match action:
-        case '1': # кинуть кости
-            num_of_dices = input('\nСколько? (1, 2)\n\n') # кол-во костей
-            if num_of_dices == '1' or num_of_dices == '':
+        case 1: # кинуть кости
+            num_of_dices = int(input('\nСколько? (1, 2)\n\n')) # кол-во костей
+            if num_of_dices == 1 or num_of_dices == 0:
                 print(f"\nВыпавшее число: {roll_the_dice()}\n")
-            elif num_of_dices == '2':
+            elif num_of_dices == 2:
                 first_dice = roll_the_dice()
                 second_dice = roll_the_dice()
                 print(f"""\nВыпавшее число: {first_dice + second_dice}
@@ -75,7 +74,7 @@ while decision == 'y' or decision == '': # выбор пользователя (
                 print("\nты далбан по русски написано от 1 до 2 глядь")
                 exit()
 
-        case '2': # случайное число
+        case 2: # случайное число
             first_num = int(input('Введите первое число:\n')) # число ОТ
             second_num = int(input('Введите второе число:\n')) # число ДО
             if first_num > second_num:
@@ -83,34 +82,34 @@ while decision == 'y' or decision == '': # выбор пользователя (
                 exit()
             print(f'\nВыпавшее число: {random.randint(first_num, second_num)}')
 
-        case '3': # подброс монетки
+        case 3: # подброс монетки
             print(f'\nВыпавшая сторона: {coin_flip()}')
 
-        case '4': # генератор паролей
+        case 4: # генератор паролей
             lenght_of_pass = int(input('\nВведите длину пароля:\n'))
             print(f'\n{generate_random_pass(lenght_of_pass)}')
 
-        case '5': # да или нет
+        case 5: # да или нет
             print(f'\nОтвет: {yes_or_no()}')
 
-        case '6': # магический шар
+        case 6: # магический шар
             input('\nВведите свой вопрос:\n')
             print(f'\n{magic_8ball()}')
 
-        case '7': # случайная карта
+        case 7: # случайная карта
             print(f'\n{random_card()}')
 
-        case '8': # рулетка
+        case 8: # рулетка
             var_list = list(input('\nВведите варианты через пробел\n').split())
             if var_list == []:
                 print('Введите корректные значения!')
                 exit()
             print(roulette(var_list))
 
-        case '9':
+        case 9:
             print(russian_roulette())
 
-        case '10':
+        case 10:
             print('Пока!')
             exit()
 
