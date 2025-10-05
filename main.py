@@ -1,5 +1,5 @@
 from ranpkg import gui
-from tkinter import *
+from tkinter import Tk, NW # нет надобности за *
 from tkinter import ttk
 
 root: Tk = Tk()
@@ -10,7 +10,7 @@ root.title('Random Generator')
 
 modes_list: list = ['Кинуть кости', 'Случайное число', 'Монетка',
                     'Генератор паролей', 'Да / нет', '8Ball',
-                    'Случайная карта', 'Рулетка', 'Русская рулетка']
+                    'Случайная карта', 'Русская рулетка']
 
 modes_combobox: ttk.Combobox = ttk.Combobox(values=modes_list, state='readonly')
 modes_combobox.pack(anchor=NW, padx=6, pady=6)

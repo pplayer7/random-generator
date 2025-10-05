@@ -12,10 +12,8 @@ def coin_flip() -> str: # ПОДБРОС МОНЕТКИ
     return random.choices(["Орел", "Решка", "Ребро"], weights=[49.5, 49.5, 1], k=1)[0] # в списке указаны возможные варианты, во втором списке шансы
 
 def generate_random_pass(length: int) -> str: # ГЕНЕРАЦИЯ СЛУЧАЙНОГО ПАРОЛЯ
-    result = '' # конечный результат
     if length >= 1:
-        for n in range(1, length + 1): # в диапазоне от 1 до длины
-            result += random.choice('abcdefghijklomnpqrstuvwxyzABCDEFGHIJKLOMNPQRSTUVWXYZ0123456789!@#$%^&*()')
+        result = ''.join(random.choices('abcdefghijklomnpqrstuvwxyzABCDEFGHIJKLOMNPQRSTUVWXYZ0123456789!@#$%^&*()', k=length))
     else:
         return 'Ошибка. Некорректная длина пароля.'
     return result
@@ -34,10 +32,10 @@ def random_card() -> str: # СЛУЧАЙНАЯ КАРТА
     cards = ['крести', 'пиков', 'червей', 'бубнов']
     return f'{random.choice(cards_value)} {random.choice(cards)}'
 
-def roulette(list_of_vars: list) -> str:
+def roulette(list_of_vars: list) -> str: # РУЛЕТКА
     return random.choice(list(list_of_vars)) if list_of_vars != [] else 'Введите правильные значения!'
 
-def russian_roulette() -> str:
+def russian_roulette() -> str: # РУССКАЯ РУЛЕТКА
     return 'Револьвер выстрелил...' if random.randint(1, 6) == 1 else 'Жив. Пока что...'
 
 
